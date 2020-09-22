@@ -1,4 +1,4 @@
-package com.anxing.sys.exception;
+package com.anxing.sys.response;
 
 import lombok.Getter;
 

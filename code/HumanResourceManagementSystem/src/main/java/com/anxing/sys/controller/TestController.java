@@ -2,7 +2,6 @@ package com.anxing.sys.controller;
 
 import javax.validation.Valid;
 
-import com.anxing.sys.exception.ResultVO;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anxing.sys.entity.User;
+import com.anxing.sys.response.ResultVO;
 
 @RestController
 public class TestController {
