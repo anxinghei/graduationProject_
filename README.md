@@ -31,9 +31,14 @@ spring.freemarker.template-loader-path=classpath:/templates/
   
    <fileNamePattern>${log.path}/springboot-logging.%d{yyyy-MM-dd}.log</fileNamePattern> 
     
-   ### 3、com.anxing.sys.response.ResponseControllerAdvice 
+   ### 3、com.anxing.sys.response.ResponseControllerAdvice： 
    3.1 统一数据响应扫描的包 
    
    @RestControllerAdvice(basePackages = {"com.anxing.sys.controller"}) 
+    
+   ### 4、com.anxing.sys.response.ResultCode： 
+   4.1 请求响应码 
+   SUCCESS(1000, "操作成功"), 
+   
    
 
