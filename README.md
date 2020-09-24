@@ -5,9 +5,12 @@
 1.1 修改端口号 
 server.port=8080
 1.2 修改连接数据库
-spring.datasource.url=jdbc:mysql://localhost:3306/hotel?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai 
-spring.datasource.username=root
-spring.datasource.password=root 
+spring.datasource.url=jdbc:mysql://localhost:3306/hotel?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai  
+
+spring.datasource.username=root 
+
+spring.datasource.password=root  
+
 1.3 freemarker模板路径 
 spring.freemarker.template-loader-path=classpath:/templates/  
  
