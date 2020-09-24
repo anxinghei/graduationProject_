@@ -2,7 +2,8 @@
 
 ## 一、启动项目前配置修改 
 ### 1、application.properties：
-1.1 修改端口号 
+1.1 修改端口号  
+
 server.port=8080 
 
 1.2 修改连接数据库 
