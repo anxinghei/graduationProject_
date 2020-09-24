@@ -38,6 +38,7 @@ spring.freemarker.template-loader-path=classpath:/templates/
     
    ### 4、com.anxing.sys.response.ResultCode： 
    4.1 请求响应码 
+   
    SUCCESS(1000, "操作成功"), 
    
    
