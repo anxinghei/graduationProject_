@@ -21,10 +21,12 @@ spring.freemarker.template-loader-path=classpath:/templates/
  ### 2、logback-spring.xml： 
  
  2.1 mybatis的sql查询日志 
- <logger name="com.anxing.sys.mapper" level="DEBUG" addtivity="false">
-    	<appender-ref ref="file" />
- </logger>  
+ <logger name="com.anxing.sys.mapper" level="DEBUG" addtivity="false"> 
 	
+    	<appender-ref ref="file" /> 
+	
+ </logger> 
+ 
   2.2 日志输出文件的命名 
   
    <fileNamePattern>${log.path}/springboot-logging.%d{yyyy-MM-dd}.log</fileNamePattern>
