@@ -29,5 +29,11 @@ spring.freemarker.template-loader-path=classpath:/templates/
  
   2.2 日志输出文件的命名 
   
-   <fileNamePattern>${log.path}/springboot-logging.%d{yyyy-MM-dd}.log</fileNamePattern>
+   <fileNamePattern>${log.path}/springboot-logging.%d{yyyy-MM-dd}.log</fileNamePattern> 
+    
+   ### 3、com.anxing.sys.response.ResponseControllerAdvice 
+   3.1 统一数据响应扫描的包 
+   
+   @RestControllerAdvice(basePackages = {"com.anxing.sys.controller"}) 
+   
 
