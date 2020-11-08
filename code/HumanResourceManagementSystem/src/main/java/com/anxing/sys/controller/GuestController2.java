@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 用户接口
+ * 用户接口22
  */
 @RequestMapping("guest")
 @RestController
-public class GuestController  {
+public class GuestController2  {
 	
 	@Autowired
 	private GuestMapper guestMapper;
 
 	/**
-	 * 
-	 * @param start
-	 * @param size
+	 * 分页
+	 * @param start	起始位置
+	 * @param size	页表长度
 	 * @return
 	 */
 	@GetMapping("findAll/{start}/{size}")

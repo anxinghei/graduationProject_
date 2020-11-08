@@ -21,6 +21,13 @@
 
 	<dependencies>
 
+<!-- API 文档自动生成工具 -->
+		<dependency>
+			<groupId>io.github.yedaxia</groupId>
+			<artifactId>japidocs</artifactId>
+			<version>1.4.4</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
