@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ResultCode {
 
-    SUCCESS(1000, "操作成功"),
+    SUCCESS(2000, "操作成功"),
 
     FAILED(1001, "响应失败"),
 

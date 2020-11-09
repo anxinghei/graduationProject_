@@ -1,17 +1,17 @@
 package com.anxing.sys.mapper;
 
-import com.anxing.sys.entity.Guest;
+import com.anxing.sys.entity.Sysuser;
 
 import tk.mybatis.mapper.common.Mapper;
 
 /**
- * 客人表，住房的人
+ * 用户表
  * 
  * @author Autumn
  * @email 
- * @date 2020-03-10 20:31:52
+ * @date 2020-04-01 23:27:40
  */
 @org.apache.ibatis.annotations.Mapper
-public interface GuestMapper extends Mapper<Guest> {
+public interface SysuserMapper extends Mapper<Sysuser> {
 	
 }
