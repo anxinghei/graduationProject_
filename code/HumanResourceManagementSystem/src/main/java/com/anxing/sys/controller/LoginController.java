@@ -16,6 +16,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,7 +74,7 @@ public class LoginController {
 
 	// 0成功 	1验证码错误		2用户名不存在	3密码错误
 	@RequestMapping(value="logining",method = RequestMethod.POST)
-	public ResultVO login(@RequestBody LoginVo LoginVo)  {
+	public ResultVO login(@RequestBody LoginVo LoginVo, HttpServletRequest request)  {
 		
 		System.out.println(LoginVo);
 		/**
@@ -86,9 +87,8 @@ public class LoginController {
 		System.out.println("login里的token:"+token .getUsername()+"--"+token.getPassword());
 //3.执行登录方法
 		// 获取session中的验证码
-//        String verCode = (String) subject.getSession().getAttribute(SHIRO_VERIFY_SESSION);
 		String verCode = LoginVo.getCode();
-        System.out.println(verCode);
+        System.out.println("【登录】时的验证码"+verCode);
         if("".equals(LoginVo.getIdentify())||(!verCode.equals(LoginVo.getIdentify()))){
         	// 登录失败:验证码错误
             return new ResultVO<>(ResultCode.VERIFY_SESSION_ERROR, 1);
@@ -127,11 +127,7 @@ public class LoginController {
             //生产验证码字符串并保存到session中
             String createText = defaultKaptcha.createText();
             LoginVo.setCode(createText);
-//            request.getSession().setAttribute(SHIRO_VERIFY_SESSION,createText);
-//            Subject subject = SecurityUtils.getSubject();	
-//            Session session = subject.getSession();
-//            session.setAttribute(SHIRO_VERIFY_SESSION,createText);
-            System.out.println("生成的验证码："+createText);
+            System.out.println("【生成】的验证码："+createText);
             //使用生产的验证码字符串返回一个BufferedImage对象并转为byte写入到byte数组中
             BufferedImage challenge = defaultKaptcha.createImage(createText);
             ImageIO.write(challenge,"jpg",jpegOutputStream);
