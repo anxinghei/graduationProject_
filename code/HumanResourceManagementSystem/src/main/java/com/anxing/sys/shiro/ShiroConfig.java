@@ -62,7 +62,7 @@ public class ShiroConfig {
         filterMap.put("/toHome", "user");
         
         //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
-		filterMap.put("/*", "anon");
+		filterMap.put("/*", "authc");
 		//设置未授权提示页面
 //		shiroFilterFactoryBean.setUnauthorizedUrl("/noAuth");
 		

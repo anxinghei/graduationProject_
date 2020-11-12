@@ -1,0 +1,6 @@
+15:56:23.464 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - ==>  Preparing: SELECT id,nickName,userName,password,status,lockEnding,role FROM sysuser WHERE userName = ? 
+15:56:23.488 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - ==> Parameters: root(String)
+15:56:23.542 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - <==      Total: 1
+15:56:23.563 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - ==>  Preparing: SELECT id,nickName,userName,password,status,lockEnding,role FROM sysuser WHERE userName = ? AND password = ? 
+15:56:23.563 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - ==> Parameters: root(String), root(String)
+15:56:23.564 spring-boot-logging [http-nio-8181-exec-6] DEBUG c.a.s.mapper.SysuserMapper.selectOne - <==      Total: 1

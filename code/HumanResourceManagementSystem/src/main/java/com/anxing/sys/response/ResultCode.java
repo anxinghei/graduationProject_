@@ -11,6 +11,13 @@ public enum ResultCode {
 
     VALIDATE_FAILED(1002, "参数校验失败"),
 
+	
+	VERIFY_SESSION_ERROR(1003,"验证码错误"),
+	NONEXIT(1004,"用户不存在"),
+	PWD_ERROR(1005,"密码错误"),
+	
+	NONUSER(1006,"当前没有已登录的用户"),
+	
     ERROR(5000, "未知错误");
 
     private int code;

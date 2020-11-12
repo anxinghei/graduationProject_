@@ -28,6 +28,8 @@ import com.anxing.sys.entity.Sysuser;
 import com.anxing.sys.mapper.PermissionMapper;
 import com.anxing.sys.mapper.RoleMapper;
 import com.anxing.sys.mapper.SysuserMapper;
+import com.anxing.sys.response.ResultCode;
+import com.anxing.sys.response.ResultVO;
 import com.anxing.sys.vo.LoginVo;
 import com.anxing.sys.vo.MemberVo;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
@@ -50,7 +52,7 @@ public class LoginController {
 	private SysuserMapper sysuserMapper;
 	
 	@RequestMapping(value="login",method = RequestMethod.GET)
-	public String toLogin() {
+	public ResultVO toLogin() {
 //		Subject subject = SecurityUtils.getSubject();	
 //		System.out.println(subject);
 //		if(subject.isAuthenticated()){
@@ -64,14 +66,14 @@ public class LoginController {
 		Sysuser sysuser=MemberVo.getSysuser();
 		if(sysuser!=null){
             System.out.println("认证成功");
-            return "success";
+            return new ResultVO<>(ResultCode.SUCCESS, "success");
         }
-		return "failed";
+		return new ResultVO<>(ResultCode.NONUSER, "failed");
 	}
 
 	// 0成功 	1验证码错误		2用户名不存在	3密码错误
 	@RequestMapping(value="logining",method = RequestMethod.POST)
-	public int login(@RequestBody LoginVo LoginVo)  {
+	public ResultVO login(@RequestBody LoginVo LoginVo)  {
 		
 		System.out.println(LoginVo);
 		/**
@@ -89,7 +91,7 @@ public class LoginController {
         System.out.println(verCode);
         if("".equals(LoginVo.getIdentify())||(!verCode.equals(LoginVo.getIdentify()))){
         	// 登录失败:验证码错误
-            return 1;
+            return new ResultVO<>(ResultCode.VERIFY_SESSION_ERROR, 1);
         }
 		try {
 //			token.setRememberMe(LoginVo.getRememberMe());
@@ -99,13 +101,16 @@ public class LoginController {
 			MemberVo.setSysuser(sysuser);
 			System.out.println("登录用户"+MemberVo.getSysuser());
 			//登录成功，跳转到主页面
-			return 0;
+			return new ResultVO<>(ResultCode.SUCCESS, 0);
 		} catch (UnknownAccountException e) {
 			//登录失败:用户名不存在
-			return 2;
+			return new ResultVO<>(ResultCode.NONEXIT, 2);
 		}catch (IncorrectCredentialsException e) {
 			//登录失败:密码错误
-			return 3;
+			return new ResultVO<>(ResultCode.PWD_ERROR, 3);
+		}catch(Exception e) {
+			// 其他原因导致登录失败
+			return new ResultVO<>(ResultCode.ERROR, 5);
 		}
 	}
 	
