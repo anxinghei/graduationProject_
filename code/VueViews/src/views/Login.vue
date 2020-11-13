@@ -7,9 +7,10 @@
             <el-form-item label="用户名" prop="username">
                 <el-input v-model="form.username"></el-input>
             </el-form-item>
-            <el-form-item label="密码" prop="password">
-                <el-input v-model="form.password"></el-input>
+            <el-form-item label="密码" prop="password" >
+                <el-input v-model="form.password" show-password></el-input>
             </el-form-item>
+
             <el-form-item label="验证码" prop="identify">
                 <el-col :span="9">
                     <el-input v-model="form.identify"></el-input>
@@ -50,6 +51,7 @@
                     rememberMe: true,
                 },
                 mes: '',
+                visible: true,
                 img: 'http://127.0.0.1:8181/getCode',
                 rules: {
                     username: [

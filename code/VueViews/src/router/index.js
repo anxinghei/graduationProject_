@@ -5,8 +5,8 @@ import Index from '../views/Index'
 import Login from '../views/Login'
 import Home from "../views/Home";
 
-import BookManaging from '../views/Book/BookManaging'
-import BookAdding from '../views/Book/BookAdding'
+// import BookManaging from '../views/Book/BookManaging'
+// import BookAdding from '../views/Book/BookAdding'
 
 Vue.use(VueRouter)
 
@@ -22,25 +22,25 @@ const routes = [
     show: false
   },
 
-  {
-    path: "/",
-    name: "个人管理",
-    component: Index,
-    show: true,
-    redirect: "/BookManage",
-    children: [
-      {
-        path: "/BookManage",
-        name: "查询订单",
-        component: BookManaging
-      },
-      {
-        path: "/AddBook",
-        name: "添加订单",
-        component: BookAdding
-      }
-    ]
-  },
+  // {
+  //   path: "/",
+  //   name: "个人管理",
+  //   component: Index,
+  //   show: true,
+  //   redirect: "/BookManage",
+  //   children: [
+  //     {
+  //       path: "/BookManage",
+  //       name: "查询订单",
+  //       component: BookManaging
+  //     },
+  //     {
+  //       path: "/AddBook",
+  //       name: "添加订单",
+  //       component: BookAdding
+  //     }
+  //   ]
+  // },
   // {
   //   path: '/update',
   //   component: Index,

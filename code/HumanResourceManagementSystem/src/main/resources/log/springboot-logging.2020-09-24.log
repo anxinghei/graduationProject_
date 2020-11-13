@@ -1,6 +1,0 @@
-16:34:33.643 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.s.m.GuestMapper.selectAll_COUNT - ==>  Preparing: SELECT count(0) FROM guest 
-16:34:33.705 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.s.m.GuestMapper.selectAll_COUNT - ==> Parameters: 
-16:34:33.791 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.s.m.GuestMapper.selectAll_COUNT - <==      Total: 1
-16:34:33.797 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.sys.mapper.GuestMapper.selectAll - ==>  Preparing: SELECT id,name,sex,phone FROM guest LIMIT ?, ? 
-16:34:33.798 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.sys.mapper.GuestMapper.selectAll - ==> Parameters: 28(Integer), 4(Integer)
-16:34:33.803 spring-boot-logging [http-nio-8080-exec-1] DEBUG c.a.sys.mapper.GuestMapper.selectAll - <==      Total: 2

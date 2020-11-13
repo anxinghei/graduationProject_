@@ -3,6 +3,9 @@ package com.anxing.sys.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import lombok.Data;
 
 
 /**
@@ -12,6 +15,7 @@ import javax.persistence.*;
  * @email 
  * @date 2020-04-01 23:27:40
  */
+@Data
 @Table(name = "sysuser")
 public class Sysuser implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,10 +29,12 @@ public class Sysuser implements Serializable {
     private String nickname;
 	
 	    //登录账号
+    @NotNull(message = "用户账号不能为空")
     @Column(name = "userName")
     private String username;
 	
 	    //密码
+    @NotNull(message = "用户密码不能为空")
     @Column(name = "password")
     private String password;
 	

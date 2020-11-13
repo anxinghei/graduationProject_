@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -74,7 +75,7 @@ public class LoginController {
 
 	// 0成功 	1验证码错误		2用户名不存在	3密码错误
 	@RequestMapping(value="logining",method = RequestMethod.POST)
-	public ResultVO login(@RequestBody LoginVo LoginVo, HttpServletRequest request)  {
+	public ResultVO login(@RequestBody LoginVo LoginVo)  {
 		
 		System.out.println(LoginVo);
 		/**
@@ -88,7 +89,7 @@ public class LoginController {
 //3.执行登录方法
 		// 获取session中的验证码
 		String verCode = LoginVo.getCode();
-        System.out.println("【登录】时的验证码"+verCode);
+        System.out.println("【登录】时的验证码"+subject.getSession().getAttribute(SHIRO_VERIFY_SESSION));
         if("".equals(LoginVo.getIdentify())||(!verCode.equals(LoginVo.getIdentify()))){
         	// 登录失败:验证码错误
             return new ResultVO<>(ResultCode.VERIFY_SESSION_ERROR, 1);
@@ -127,6 +128,7 @@ public class LoginController {
             //生产验证码字符串并保存到session中
             String createText = defaultKaptcha.createText();
             LoginVo.setCode(createText);
+            request.getSession().setAttribute(SHIRO_VERIFY_SESSION, createText);
             System.out.println("【生成】的验证码："+createText);
             //使用生产的验证码字符串返回一个BufferedImage对象并转为byte写入到byte数组中
             BufferedImage challenge = defaultKaptcha.createImage(createText);
