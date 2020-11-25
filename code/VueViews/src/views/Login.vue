@@ -18,7 +18,8 @@
                 <el-col :span="15">
                     <div class="demo-image__placeholder">
                         <div class="block">
-                            <el-image :src="this.img"></el-image>
+                            <el-image :src="this.img" ></el-image>
+<!--                            <el-image  @click.prevent="refresh" ref="codeImg"></el-image>-->
                         </div>
                     </div>
                 </el-col>
@@ -45,14 +46,15 @@
         data() {
             return {
                 form: {
-                    username: "",
-                    password: "",
+                    username: "root",
+                    password: "root",
                     identify: '',
                     rememberMe: true,
                 },
                 mes: '',
+                token: '',
                 visible: true,
-                img: 'http://127.0.0.1:8181/getCode',
+                img: '',
                 rules: {
                     username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'}
@@ -70,7 +72,17 @@
             onSubmit() {
                 const _this = this
                 console.log(this.form)
-                axios.post('http://localhost:8181/logining', this.form).then(function (resp) {
+                axios.post('http://localhost:8185/logining', this.form, {
+                        headers: {
+                            // 'Access-Control-Allow-Origin':'*',  //解决cors头问题
+                            'Access-Control-Allow-Headers':"x-requested-with, Content-Type,Access-Token", //解决session问题
+                            "Access-Control-Expose-Headers":"Access-Token",
+                            // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' //将表单数据传递转化为form-data类型
+                            'Access-Token': _this.token
+                        },
+                        withCredentials : true
+                    }
+                ).then(function (resp) {
                     console.log(resp)
                     // 0成功 	1验证码错误		2用户名不存在	3密码错误
                     if (resp.data.data == 0) {
@@ -98,10 +110,23 @@
                     })
                     console.log("登录成功")
                 } else {
-                    console.log(resp)
-                    _this.$router.push({
-                        path: '/Login'
-                    }).catch(err => {
+                    // console.log(resp)
+                    // _this.$router.push({
+                    //     path: '/Login'
+                    // }).catch(err => {
+                    // })
+                    axios.get('http://localhost:8185/api/code', { responseType: 'blob' }).then(function (res) {
+                        // var img = this.$refs.codeImg;
+                        // let url = window.URL.createObjectURL(res.data);
+                        // img.src = url;
+
+                        //取得后台通过响应头返回的sessionId的值
+                        _this.token = res.headers['access-token'];
+                        let url = window.URL.createObjectURL(res.data);
+                        _this.img = url;
+                        console.log("====================================");
+                        console.log(res);
+                        console.log(_this.token);
                     })
                 }
             })

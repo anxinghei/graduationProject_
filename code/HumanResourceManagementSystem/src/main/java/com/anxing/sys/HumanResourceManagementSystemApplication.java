@@ -1,11 +1,18 @@
 package com.anxing.sys;
 
+import com.anxing.sys.session.MySessionListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import tk.mybatis.spring.annotation.MapperScan;
 
+//@ServletComponentScan
+@MapperScan("com.anxing.sys.mapper")
 @SpringBootApplication
 public class HumanResourceManagementSystemApplication {
 
@@ -21,4 +28,10 @@ public class HumanResourceManagementSystemApplication {
 		SpringApplication.run(HumanResourceManagementSystemApplication.class, args);
 	}
 
+//	@Bean
+//	public ServletListenerRegistrationBean servletListenerRegistrationBean() {
+//		ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
+//		servletListenerRegistrationBean.setListener(new MySessionListener());
+//		return servletListenerRegistrationBean;
+//	}
 }

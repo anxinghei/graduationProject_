@@ -65,6 +65,7 @@ public class SysuserController  {
 				lists.add(permissionVo);
 			}
 		}
+		System.out.println(permissionVo);
      	MemberVo memberVo=new MemberVo();
      	memberVo.setUser(MemberVo.getSysuser());
      	memberVo.setRules(lists);

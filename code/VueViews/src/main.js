@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import './plugins/element.js'
 
+axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 
 new Vue({
