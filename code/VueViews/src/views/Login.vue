@@ -72,7 +72,7 @@
             onSubmit() {
                 const _this = this
                 console.log(this.form)
-                axios.post('http://localhost:8185/logining', this.form, {
+                axios.post('http://localhost:8181/logining', this.form, {
                         headers: {
                             // 'Access-Control-Allow-Origin':'*',  //解决cors头问题
                             'Access-Control-Allow-Headers':"x-requested-with, Content-Type,Access-Token", //解决session问题
@@ -115,7 +115,7 @@
                     //     path: '/Login'
                     // }).catch(err => {
                     // })
-                    axios.get('http://localhost:8185/api/code', { responseType: 'blob' }).then(function (res) {
+                    axios.get('http://localhost:8181/api/code', { responseType: 'blob' }).then(function (res) {
                         // var img = this.$refs.codeImg;
                         // let url = window.URL.createObjectURL(res.data);
                         // img.src = url;

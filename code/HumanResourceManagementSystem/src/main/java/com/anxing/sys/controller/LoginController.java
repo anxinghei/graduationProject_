@@ -100,8 +100,8 @@ public class LoginController {
 		HttpSession session = myc.getSession(sessionId);
 		System.out.println(session);
 		//取得当时存入的验证码
-		String correctCode = session.getAttribute("code").toString();
-		System.out.println("【登录】时的验证码: "+correctCode);
+//		String correctCode = session.getAttribute("code").toString();
+//		System.out.println("【登录】时的验证码: "+correctCode);
 
         if("".equals(LoginVo.getIdentify())||(!verCode.equals(LoginVo.getIdentify()))){
         	// 登录失败:验证码错误

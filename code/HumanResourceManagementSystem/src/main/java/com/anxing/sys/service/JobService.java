@@ -1,9 +1,6 @@
 package com.anxing.sys.service;
 
 import org.springframework.stereotype.Service;
-
-import com.anxing.sys.entity.Job;
-import com.anxing.sys.mapper.JobMapper;
 //import com.github.wxiaoqi.security.common.biz.BaseBiz;
 
 /**

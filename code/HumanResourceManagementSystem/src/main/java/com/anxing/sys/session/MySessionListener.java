@@ -35,7 +35,7 @@ public class MySessionListener extends RedisSessionDAO implements SessionListene
         //会话创建，在线人数加一
         System.out.println(sessionCount+"==============" );
         sessionCount.incrementAndGet();
-        MySessionContext.addSession((HttpSession) session);
+//        MySessionContext.addSession((HttpSession) session);
         System.out.println("会话创建时的session"+session);
 
     }
