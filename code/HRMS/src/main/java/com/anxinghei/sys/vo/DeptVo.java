@@ -1,8 +1,5 @@
 package com.anxinghei.sys.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 public class DeptVo {
 
     private Integer dId;
