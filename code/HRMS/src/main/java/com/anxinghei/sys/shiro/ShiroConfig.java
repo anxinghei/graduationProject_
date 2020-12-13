@@ -1,4 +1,4 @@
-package com.anxing.sys.shiro;
+package com.anxinghei.sys.shiro;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

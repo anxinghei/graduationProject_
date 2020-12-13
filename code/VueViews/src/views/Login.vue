@@ -42,6 +42,7 @@
     </div>
 </template>
 <script>
+    // debugger
     export default {
         data() {
             return {
@@ -103,6 +104,7 @@
         created() {
             const _this = this
             axios.get('http://localhost:8181/login').then(function (resp) {
+                console.log(resp.data.data+"===")
                 if (resp.data.data == "success") {
                     _this.$router.push({
                         path: '/Home'

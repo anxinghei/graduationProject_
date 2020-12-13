@@ -1,13 +1,7 @@
-/**
- * 
- */
-package com.anxing.sys.shiro;
+package com.anxinghei.sys.shiro;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -20,20 +14,23 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
-import com.anxing.sys.entity.Permission;
-import com.anxing.sys.entity.Role;
-import com.anxing.sys.entity.Sysuser;
-import com.anxing.sys.mapper.PermissionMapper;
-import com.anxing.sys.mapper.RoleMapper;
-import com.anxing.sys.mapper.SysuserMapper;
+import com.anxinghei.sys.entity.Permission;
+import com.anxinghei.sys.entity.Role;
+import com.anxinghei.sys.entity.Sysuser;
+import com.anxinghei.sys.mapper.PermissionMapper;
+import com.anxinghei.sys.mapper.RoleMapper;
+import com.anxinghei.sys.mapper.SysuserMapper;
+
 
 /**
- * @Description Shiro权限匹配和账号密码匹配
- * @Author Sans
- * @CreateTime 2019/6/15 11:27
+ * 自定义Realm
+ * @author lenovo
+ *
  */
-public class ShiroRealm extends AuthorizingRealm {
+public class UserRealm extends AuthorizingRealm{
+
 	@Autowired
 	private SysuserMapper memberService;
 	@Autowired
@@ -64,11 +61,11 @@ public class ShiroRealm extends AuthorizingRealm {
 		// 得到当前用户权限类别的具体权限序列
 		String rules=authGroup.getPerm();
 		rules=rules.substring(1);
-		Permission authRule;
 		if (rules!=null || !rules.isEmpty()) {
 			// 拆分权限序列，得到具体权限
 			String[] ruleStrings=rules.split(",");
 			int id;
+			Permission authRule;
 			String rule;
 			for (int i = 0; i < ruleStrings.length; i++) {
 				id=Integer.parseInt(ruleStrings[i]);

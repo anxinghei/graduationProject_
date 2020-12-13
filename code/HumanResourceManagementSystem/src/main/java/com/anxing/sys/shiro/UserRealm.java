@@ -2,6 +2,12 @@ package com.anxing.sys.shiro;
 
 import java.util.Set;
 
+import com.anxing.sys.entity.Permission;
+import com.anxing.sys.entity.Role;
+import com.anxing.sys.entity.Sysuser;
+import com.anxing.sys.mapper.PermissionMapper;
+import com.anxing.sys.mapper.RoleMapper;
+import com.anxing.sys.mapper.SysuserMapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -16,12 +22,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
-import com.anxing.sys.entity.Permission;
-import com.anxing.sys.entity.Role;
-import com.anxing.sys.entity.Sysuser;
-import com.anxing.sys.mapper.PermissionMapper;
-import com.anxing.sys.mapper.RoleMapper;
-import com.anxing.sys.mapper.SysuserMapper;
 
 
 /**

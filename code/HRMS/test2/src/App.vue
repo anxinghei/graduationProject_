@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <router-view></router-view>
+        <router-view></router-view>
 
   </div>
 </template>
@@ -27,7 +27,6 @@
 </style>
 
 <script>
-  // debugger
   export default {
     data() {
       const item = {
@@ -43,22 +42,19 @@
 
     },
 
-
     created() {
       const _this = this
       axios.get('http://localhost:8181/login').then(function(resp){
-        console.log("==="+resp.data.code)
-        if (resp.data.code == 1006){
-          console.log(resp)
-          _this.$router.push({
-            path: '/Login'
-          }).catch(err => {})
-          console.log("未登录")
-        }else if (resp.data.code == 2000){
+        if (resp.data == "success"){
           _this.$router.push({
             path: '/Home'
           }).catch(err => {})
           console.log("登录成功")
+        }else{
+          console.log(resp)
+          _this.$router.push({
+            path: '/Login'
+          }).catch(err => {})
         }
       })
     }

@@ -31,11 +31,11 @@ const routes = [
   },
 
   {
-    path: "/DeptManage",
+    path: "/DeptSearch",
     name: "部门管理",
     component: Index,
     show: true,
-    redirect: "/DeptManage",
+    redirect: "/DeptSearch",
     children: [
       {
         path: "/DeptSearch",
@@ -172,7 +172,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
