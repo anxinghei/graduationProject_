@@ -1,15 +1,11 @@
 package com.anxinghei.sys.controller;
 
-import com.anxinghei.sys.entity.Employee;
 import com.anxinghei.sys.service.EmployeeVoService;
 import com.anxinghei.sys.vo.EmployeeVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,8 +19,19 @@ public class EmployeeController {
     @GetMapping("findAll/{start}/{size}")
     PageInfo<EmployeeVo> findAll(@PathVariable("start") Integer start, @PathVariable("size") Integer size){
         PageHelper.startPage(start,size);
-        List<EmployeeVo> deptVo=employeeVoService.findAll();
-        PageInfo<EmployeeVo> pageInfo=new PageInfo<>(deptVo);
+        List<EmployeeVo> employeeVo=employeeVoService.findAll();
+        PageInfo<EmployeeVo> pageInfo=new PageInfo<>(employeeVo);
         return pageInfo;
+    }
+
+    @PutMapping("update")
+    public int update(@RequestBody EmployeeVo employeeVo){
+        System.out.println("update---"+employeeVo);
+        return employeeVoService.update(employeeVo);
+    }
+
+    @DeleteMapping("deleteById/{id}")
+    public int deleteById(@PathVariable("id")Integer id){
+        return employeeVoService.deleteById(id);
     }
 }

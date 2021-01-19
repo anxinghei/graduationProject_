@@ -1,11 +1,11 @@
 <template>
     <div id="app">
         <el-row :gutter="20">
-            <el-col :span="16">
+            <el-col :span="20">
                 <div class="grid-content bg-purple">
 
                 </div></el-col>
-            <el-col :span="8">
+            <el-col :span="4">
                 <el-button>{{this.user}}</el-button>
                 <el-button  @click="logouting">退出</el-button>
             </el-col>

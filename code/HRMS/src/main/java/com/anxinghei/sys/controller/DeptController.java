@@ -1,4 +1,5 @@
 package com.anxinghei.sys.controller;
+import com.anxinghei.sys.entity.Dept;
 import com.anxinghei.sys.service.DeptVoService;
 import com.anxinghei.sys.vo.DeptVo;
 import com.github.pagehelper.PageHelper;
@@ -17,6 +18,11 @@ public class DeptController  {
     @Autowired
     private DeptVoService deptVoService;
 
+    @GetMapping("getAll")
+    public List<Dept> getAllDepts(){
+        return deptVoService.getAllDepts();
+    }
+
     @GetMapping("findAll/{start}/{size}")
     PageInfo<DeptVo> findAll(@PathVariable("start") Integer start, @PathVariable("size") Integer size){
         PageHelper.startPage(start,size);
@@ -30,10 +36,12 @@ public class DeptController  {
         System.out.println("update---"+deptVo);
         return deptVoService.update(deptVo);
     }
+
     @DeleteMapping("deleteById/{id}")
     public int deleteById(@PathVariable("id")Integer id){
         return deptVoService.deleteById(id);
     }
+
     @PostMapping("save")
     public int save(@RequestBody DeptVo deptVo){
         System.out.println("add---"+deptVo);

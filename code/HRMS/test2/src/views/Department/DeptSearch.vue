@@ -137,7 +137,7 @@
                     type: 'warning'
                 }).then(() => {
                     axios.delete('http://localhost:8181/dept/deleteById/'+row.dId).then(function(resp){
-                        _this.$alert('退房成功！', '消息', {
+                        _this.$alert('部门删除成功！', '消息', {
                             confirmButtonText: '确定',
                             callback: action => {
                                 window.location.reload()

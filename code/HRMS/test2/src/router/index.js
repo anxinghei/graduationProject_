@@ -5,10 +5,12 @@ import Index from '../views/Index'
 import Login from '../views/Login'
 import Home from "../views/Home";
 
-import BookManaging from '../views/Department/BookManaging'
+import DeptSearch from '../views/Department/DeptSearch'
+
+import FacilityManager from '../views/Employee/FacilityManager'
 
 import RoomManaging from '../views/Resume/RoomManaging'
-import FacilityManager from '../views/Employee/FacilityManager'
+
 import GuestList from '../views/Employee/GuestList'
 import Payment from '../views/Employee/Payment'
 import RoomOf from '../views/Employee/RoomOf/RoomOf'
@@ -33,32 +35,32 @@ const routes = [
 
     {
         path: "/",
-        name: "订单管理",
+        name: "部门管理",
         component: Index,
         show: true,
         redirect: "/DeptSearch",
         children: [
             {
                 path: "/DeptSearch",
-                name: "查询订单",
-                component: BookManaging
+                name: "查询部门",
+                component: DeptSearch
             }
         ]
     },
  
 
     {
-        path: "/RoomManage",
-        name: "房间管理",
+        path: "/EmpSearch",
+        name: "人员管理",
         show: true,
         component: Index,
         // RoomManaging
-        redirect: "/RoomManage",
+        redirect: "/EmpSearch",
         children: [
             {
-                path: "/RoomManage",
-                name: "查看房间",
-                component: RoomManaging
+                path: "/EmpSearch",
+                name: "查看人员",
+                component: FacilityManager
             }
         ]
     },
@@ -107,16 +109,16 @@ const routes = [
         ]
     },
     {
-        path: '/TypeFacilities',
+        path: '/resume',
         component: Index,
         name: '设施修改',
         show: false,
-        redirect: "/TypeFacilities",
+        redirect: "/resume",
         children: [
             {
-                path: "/TypeFacilities",
+                path: "/resume",
                 name: "房间设施修改",
-                component: TypeFacilities
+                component: RoomManaging
             }
         ]
     },

@@ -40,4 +40,8 @@ public class DeptVoService {
         dept.setDescription(deptVo.getDescription());
         return deptMapper.insertSelective(dept);
     }
+
+    public List<Dept> getAllDepts(){
+        return deptMapper.selectAll();
+    }
 }

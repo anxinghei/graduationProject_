@@ -51,6 +51,8 @@ public class ShiroConfig {
 		filterMap.put("/login", "anon");
 		filterMap.put("/logining", "anon");
 		filterMap.put("/getCode","anon");
+		// 放行《投递简历》
+		filterMap.put("/resume","anon");
 		//修改调整的登录页面
 		shiroFilterFactoryBean.setLoginUrl("/login");
 		// 登录成功后要跳转的链接
